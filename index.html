@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Практична робота — Семантична розмітка та робота з великим текстом</title>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.65;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f4f7f6;
+            color: #333;
+        }
+
+        header, nav, main, aside, footer {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+        }
+
+        header {
+            padding: 20px;
+            margin-bottom: 15px;
+            border-left: 5px solid #0d6efd;
+        }
+
+        nav {
+            padding: 12px 20px;
+            margin-bottom: 20px;
+            background-color: #e9ecef;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        nav a {
+            text-decoration: none;
+            font-weight: bold;
+            color: #0d6efd;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        .layout-wrapper {
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+
+        main {
+            flex: 3;
+            padding: 25px;
+        }
+
+        aside {
+            flex: 1;
+            min-width: 240px;
+            padding: 18px;
+            background-color: #f8f9fa;
+            border: 1px solid #dee2e6;
+        }
+
+        section {
+            margin-bottom: 28px;
+            padding-bottom: 18px;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        section:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+
+        article {
+            margin-top: 12px;
+        }
+
+        h1, h2, h3 {
+            color: #2c3e50;
+            margin-top: 0;
+        }
+
+        .toc-list {
+            padding-left: 18px;
+        }
+
+        .toc-list li {
+            margin-bottom: 6px;
+        }
+
+        .back-top {
+            display: inline-block;
+            margin-top: 8px;
+            font-size: 14px;
+            color: #198754;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .back-top:hover {
+            text-decoration: underline;
+        }
+
+        .check-status {
+            margin-top: 15px;
+            padding: 12px;
+            background-color: #d1e7dd;
+            border-left: 4px solid #198754;
+            border-radius: 4px;
+            color: #0f5132;
+        }
+
+        footer {
+            padding: 18px 20px;
+            text-align: center;
+            color: #666;
+        }
+
+        @media (max-width: 768px) {
+            .layout-wrapper {
+                flex-direction: column;
+            }
+
+            aside {
+                width: 100%;
+                box-sizing: border-box;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header id="page-top">
+        <h1>Семантична будова веб-сторінки та робота з великим текстом</h1>
+        <p><strong>Виконав:</strong> студент групи ІПЗ-24-1</p>
+    </header>
+
+    <nav aria-label="Головна навігація">
+        <ul>
+            <li><a href="index.html">Посилання та кнопки</a></li>
+            <li><a href="forms.html">HTML-форми та JS</a></li>
+            <li><a href="animation.html">Анімація</a></li>
+            <li><a href="blocks.html">Блоки та вкладеність</a></li>
+            <li><a href="#validation-check">Валідація та здача</a></li>
+        </ul>
+    </nav>
+
+    <div class="layout-wrapper">
+        <main>
+            <section id="contents">
+                <h2>Зміст матеріалу (навігація по тексту)</h2>
+                <ol class="toc-list">
+                    <li><a href="#part-1">Ієрархія заголовків від h1 до h6</a></li>
+                    <li><a href="#part-2">Розбиття великого тексту на абзаци та логічні блоки</a></li>
+                    <li><a href="#part-3">Читабельність, відступи та візуальні акценти</a></li>
+                    <li><a href="#part-4">Перехресна навігація в довгих документах</a></li>
+                </ol>
+            </section>
+
+            <section id="part-1">
+                <h2>1. Ієрархія заголовків від h1 до h6</h2>
+                <article>
+                    <h3>Чому важлива правильна структура заголовків</h3>
+                    <p>Коли документ містить багато тексту, заголовки виконують роль дорожніх знаків. Вони допомагають читачеві швидко зорієнтуватися, зрозуміти логіку викладу та знайти потрібну інформацію без читання кожного слова підряд. У HTML для цього передбачено шість рівнів заголовків: від <code><h1></code> до <code><h6></code>.</p>
+                    <p>Головний заголовок <code><h1></code> зазвичай позначає тему всієї сторінки або документа і використовується лише один раз. Наступні рівні (<code><h2></code>, <code><h3></code> і далі) позначають розділи, підрозділи та дрібніші теми. Не варто пропускати рівні або вибирати тег лише через розмір шрифту — для розміру краще використовувати CSS.</p>
+                    <a href="#page-top" class="back-top">↑ До початку сторінки</a>
+                </article>
+            </section>
+
+            <section id="part-2">
+                <h2>2. Розбиття великого тексту на абзаци та логічні блоки</h2>
+                <article>
+                    <h3>Як уникнути «стіни тексту»</h3>
+                    <p>Суцільний великий масив тексту без абзаців, підзаголовків і проміжків швидко втомлює очі. На екрані монітора читати довгі уривки складніше, ніж на папері, тому кожну нову думку варто виносити в окремий абзац <code><p></code>.</p>
+                    <p>Для логічного групування матеріалу в сучасному HTML використовують семантичні теги: <code><section></code> для тематичних розділів і <code><article></code> для самостійних фрагментів (наприклад, окремої статті, замітки або навчального блоку). Це робить код зрозумілим як для інших розробників, так і для пошукових систем та засобів доступності.</p>
+                    <a href="#page-top" class="back-top">↑ До початку сторінки</a>
+                </article>
+            </section>
+
+            <section id="part-3">
+                <h2>3. Читабельність, відступи та візуальні акценти</h2>
+                <article>
+                    <h3>Роль міжрядкового інтервалу та ширини рядка</h3>
+                    <p>Навіть добре структурований текст важко читати, якщо рядки надто довгі або злипаються по вертикалі. Оптимальна міжрядкова відстань (<code>line-height</code>) становить приблизно 1.5–1.7 розміру шрифту, а обмеження ширини контейнера (наприклад, через <code>max-width</code>) не дає очам губитися під час переходу з рядка на рядок.</p>
+                    <p>Важливі терміни та ключові поняття варто виділяти обережно: за допомогою <code><strong></code> для смыслового виділення або <code><em></code> для акценту. Надмірне використання яскравих кольорів, підкреслень і капслоку навпаки погіршує сприйняття.</p>
+                    <a href="#page-top" class="back-top">↑ До початку сторінки</a>
+                </article>
+            </section>
+
+            <section id="part-4">
+                <h2>4. Перехресна навігація в довгих документах</h2>
+                <article>
+                    <h3>Зміст та кнопки повернення на початок</h3>
+                    <p>У великих статтях, інструкціях і конспектах зручно поєднувати два підходи: зміст на початку сторінки (з посиланнями на <code>id</code> потрібних розділів) і посилання повернення нагору після кожного великого блоку.</p>
+                    <p>Така навігація економить час при перевірці та читанні матеріалу, особливо коли користувач відкрив сторінку з телефону або переглядає довгий звіт на занятті.</p>
+                    <a href="#page-top" class="back-top">↑ До початку сторінки</a>
+                </article>
+            </section>
+
+            <section id="validation-check">
+                <h2>5. Валідація HTML-коду та надсилання на перевірку</h2>
+                <p>Перед здачею роботи необхідно перевірити документ на синтаксичні помилки HTML у валідаторі (наприклад, <strong>W3C Markup Validation Service</strong> — <code>validator.w3.org</code>), виправити попередження або помилки та підготувати файл до відправки викладачу.</p>
+                <button type="button" onclick="runValidationChecklist()" style="padding: 10px 16px; font-weight: bold; cursor: pointer; background-color: #0d6efd; color: white; border: none; border-radius: 5px;">
+                    Перевірити готовність до здачі
+                </button>
+                <div class="check-status" id="validationOutput">
+                    Натисніть кнопку, щоб сформувати чек-лист перевірки перед надсиланням роботи.
+                </div>
+            </section>
+        </main>
+
+        <aside aria-label="Додаткова інформація">
+            <h3>Швидкий перехід по тексту</h3>
+            <ul>
+                <li><a href="#part-1">1. Заголовки h1–h6</a></li>
+                <li><a href="#part-2">2. Абзаци та блоки</a></li>
+                <li><a href="#part-3">3. Читабельність тексту</a></li>
+                <li><a href="#part-4">4. Навігація документом</a></li>
+                <li><a href="#validation-check">5. Валідація та здача</a></li>
+            </ul>
+
+            <hr>
+
+            <h3>Нотатка студента (ІПЗ-24-1)</h3>
+            <p><small>Семантичні теги <code><header></code>, <code><nav></code>, <code><main></code>, <code><section></code>, <code><article></code>, <code><aside></code> і <code><footer></code> замінюють безликі <code><div></code> там, де є чітка роль елемента.</small></p>
+        </aside>
+    </div>
+
+    <footer>
+        <p>© 2026 | Студентська робота | Група ІПЗ-24-1</p>
+    </footer>
+
+    <script>
+        function runValidationChecklist() {
+            const out = document.getElementById("validationOutput");
+            out.innerHTML = "<strong>Перевірку пройдено (локальний чек-лист):</strong><br>" +
+                "1. Вказано <code><!DOCTYPE html></code> та кодування <code>UTF-8</code>.<br>" +
+                "2. Використано семантичні теги: <code><header></code>, <code><nav></code>, <code><main></code>, <code><section></code>, <code><
